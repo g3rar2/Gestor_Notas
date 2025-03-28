@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GestorNotas1Q2025.Views.MainView"
+             xmlns:viewModel="clr-namespace:GestorNotas1Q2025.ViewModels"
+             x:DataType="viewModel:MainViewModel"
+             xmlns:model="clr-namespace:GestorNotas1Q2025.Models">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="10" Spacing="20">
+
+            <Label Text="Notas" FontAttributes="Bold" HorizontalTextAlignment="Center" FontSize="30"/>
+
+            <!-- /////////////////////Seccion de Busqueda /////////////////////////////// -->
+            <SearchBar Text="{Binding BuscarNota}" Placeholder="Buscar nota" SearchCommand="{Binding BuscarCommand}"/>
+            <!-- /////////////////////////////////////////////////////////////////////// -->
+            
+            <Button Text="Agregar Nota" Command="{Binding GoToAdEditViewCommand}" Margin="5,0,0,30" TextColor="white" BackgroundColor="Chocolate" FontAttributes="Bold" CornerRadius="30" />
+
+            
+            <RoundRectangle Margin="-5,-30,-5,-2" CornerRadius="30,30,0,0" Fill="White"/>
+            <Grid Margin="5,5,5,5" RowDefinitions="Auto" ColumnDefinitions="60,*,*" >
+                <Label Text="Id" Grid.Row="0" Grid.Column="0" FontAttributes="Bold"></Label>
+                <Label Text="Titulo" Grid.Row="0" Grid.Column="1" FontAttributes="Bold"></Label>
+                <Label Text="Descripcion" Grid.Row="0" Grid.Column="2" FontAttributes="Bold"></Label>
+            </Grid>
+            <CollectionView ItemsSource="{Binding NotaCollection}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:NotaModel">
+                        <Grid RowSpacing="10" RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="60,*,*" VerticalOptions="Fill" >
+                            <Label Text="{Binding Id}" Grid.Row="1" Grid.Column="0"></Label>
+                            <Label Text="{Binding Titulo}" Grid.Row="1" Grid.Column="1"></Label>
+                            <Label Text="{Binding Descripcion}" Grid.Row="1" Grid.Column="2"></Label>
+                            
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type viewModel:MainViewModel}},Path=SelectCommand }" CommandParameter="{Binding}"></TapGestureRecognizer>
+                            </Grid.GestureRecognizers>
+                           
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

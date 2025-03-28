@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GestorNotas1Q2025.Views.AddEditView"
+             xmlns:viewModel="clr-namespace:GestorNotas1Q2025.ViewModels"
+             x:DataType="viewModel:AddEditViewModel"
+             Title="">
+
+    <VerticalStackLayout Padding="30" Spacing="15">
+
+        <Label Text="Agregar/Actualizar Notas" FontSize="20" FontAttributes="Bold" TextTransform="Uppercase" HorizontalTextAlignment="Center" Margin="0,0,0,30"/>
+
+        <Label Text="Titulo:"></Label>
+        <Entry Text="{Binding Titulo}" Keyboard="Text"></Entry>
+        
+        <Label Text="Descripcion:"></Label>
+        <Entry Text="{Binding Descripcion}" Keyboard="Text"></Entry>
+
+        <Button Text="Guardar" Background="Green" Command="{Binding AddUpdateCommand}" Margin="0,20,0,0" TextColor="White" TextTransform="Uppercase" FontAttributes="Bold" CornerRadius="40" />
+    </VerticalStackLayout>
+</ContentPage>

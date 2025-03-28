@@ -1,0 +1,40 @@
+Index: GestorNotas1Q2025/App.xaml.cs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>using GestorNotas1Q2025.Views;\r\n\r\nnamespace GestorNotas1Q2025\r\n{\r\n    public partial class App : Application\r\n    {\r\n        public App()\r\n        {\r\n            InitializeComponent();\r\n\r\n            MainPage = new Home();\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/GestorNotas1Q2025/App.xaml.cs b/GestorNotas1Q2025/App.xaml.cs
+--- a/GestorNotas1Q2025/App.xaml.cs	(revision 4fe861aa235776c05903196385a114ba95059484)
++++ b/GestorNotas1Q2025/App.xaml.cs	(date 1741054153096)
+@@ -8,7 +8,7 @@
+         {
+             InitializeComponent();
+ 
+-            MainPage = new Home();
++            MainPage = new GestorNotasView();
+         }
+     }
+ }
+Index: GestorNotas1Q2025/GestorNotas1Q2025.csproj
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><Project Sdk=\"Microsoft.NET.Sdk\">\r\n\r\n\t<PropertyGroup>\r\n\t\t<TargetFrameworks>net8.0-android;net8.0-ios;net8.0-maccatalyst</TargetFrameworks>\r\n\t\t<TargetFrameworks Condition=\"$([MSBuild]::IsOSPlatform('windows'))\">$(TargetFrameworks);net8.0-windows10.0.19041.0</TargetFrameworks>\r\n\t\t<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->\r\n\t\t<!-- <TargetFrameworks>$(TargetFrameworks);net8.0-tizen</TargetFrameworks> -->\r\n\r\n\t\t<!-- Note for MacCatalyst:\r\n\t\tThe default runtime is maccatalyst-x64, except in Release config, in which case the default is maccatalyst-x64;maccatalyst-arm64.\r\n\t\tWhen specifying both architectures, use the plural <RuntimeIdentifiers> instead of the singular <RuntimeIdentifier>.\r\n\t\tThe Mac App Store will NOT accept apps with ONLY maccatalyst-arm64 indicated;\r\n\t\teither BOTH runtimes must be indicated or ONLY macatalyst-x64. -->\r\n\t\t<!-- For example: <RuntimeIdentifiers>maccatalyst-x64;maccatalyst-arm64</RuntimeIdentifiers> -->\r\n\r\n\t\t<OutputType>Exe</OutputType>\r\n\t\t<RootNamespace>GestorNotas1Q2025</RootNamespace>\r\n\t\t<UseMaui>true</UseMaui>\r\n\t\t<SingleProject>true</SingleProject>\r\n\t\t<ImplicitUsings>enable</ImplicitUsings>\r\n\t\t<Nullable>enable</Nullable>\r\n\r\n\t\t<!-- Display name -->\r\n\t\t<ApplicationTitle>GestorNotas1Q2025</ApplicationTitle>\r\n\r\n\t\t<!-- App Identifier -->\r\n\t\t<ApplicationId>com.companyname.gestornotas1q2025</ApplicationId>\r\n\r\n\t\t<!-- Versions -->\r\n\t\t<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>\r\n\t\t<ApplicationVersion>1</ApplicationVersion>\r\n\r\n\t\t<SupportedOSPlatformVersion Condition=\"$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'\">11.0</SupportedOSPlatformVersion>\r\n\t\t<SupportedOSPlatformVersion Condition=\"$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'\">13.1</SupportedOSPlatformVersion>\r\n\t\t<SupportedOSPlatformVersion Condition=\"$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'\">21.0</SupportedOSPlatformVersion>\r\n\t\t<SupportedOSPlatformVersion Condition=\"$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'\">10.0.17763.0</SupportedOSPlatformVersion>\r\n\t\t<TargetPlatformMinVersion Condition=\"$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'\">10.0.17763.0</TargetPlatformMinVersion>\r\n\t\t<SupportedOSPlatformVersion Condition=\"$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'\">6.5</SupportedOSPlatformVersion>\r\n\t</PropertyGroup>\r\n\r\n\t<ItemGroup>\r\n\t\t<!-- App Icon -->\r\n\t\t<MauiIcon Include=\"Resources\\AppIcon\\appicon.svg\" ForegroundFile=\"Resources\\AppIcon\\appiconfg.svg\" Color=\"#512BD4\" />\r\n\r\n\t\t<!-- Splash Screen -->\r\n\t\t<MauiSplashScreen Include=\"Resources\\Splash\\splash.svg\" Color=\"#512BD4\" BaseSize=\"128,128\" />\r\n\r\n\t\t<!-- Images -->\r\n\t\t<MauiImage Include=\"Resources\\Images\\*\" />\r\n\t\t<MauiImage Update=\"Resources\\Images\\dotnet_bot.png\" Resize=\"True\" BaseSize=\"300,185\" />\r\n\r\n\t\t<!-- Custom Fonts -->\r\n\t\t<MauiFont Include=\"Resources\\Fonts\\*\" />\r\n\r\n\t\t<!-- Raw Assets (also remove the \"Resources\\Raw\" prefix) -->\r\n\t\t<MauiAsset Include=\"Resources\\Raw\\**\" LogicalName=\"%(RecursiveDir)%(Filename)%(Extension)\" />\r\n\t</ItemGroup>\r\n\r\n\t<ItemGroup>\r\n\t\t<PackageReference Include=\"CommunityToolkit.Mvvm\" Version=\"8.4.0\" />\r\n\t\t<PackageReference Include=\"Microsoft.Maui.Controls\" Version=\"$(MauiVersion)\" />\r\n\t\t<PackageReference Include=\"Microsoft.Maui.Controls.Compatibility\" Version=\"$(MauiVersion)\" />\r\n\t\t<PackageReference Include=\"Microsoft.Extensions.Logging.Debug\" Version=\"8.0.1\" />\r\n\t</ItemGroup>\r\n\r\n\t<ItemGroup>\r\n\t  <Folder Include=\"Models\\\" />\r\n\t</ItemGroup>\r\n\r\n</Project>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/GestorNotas1Q2025/GestorNotas1Q2025.csproj b/GestorNotas1Q2025/GestorNotas1Q2025.csproj
+--- a/GestorNotas1Q2025/GestorNotas1Q2025.csproj	(revision 4fe861aa235776c05903196385a114ba95059484)
++++ b/GestorNotas1Q2025/GestorNotas1Q2025.csproj	(date 1741054184099)
+@@ -67,4 +67,10 @@
+ 	  <Folder Include="Models\" />
+ 	</ItemGroup>
+ 
++	<ItemGroup>
++	  <MauiXaml Update="Views\GestorNotasView.xaml">
++	    <Generator>MSBuild:Compile</Generator>
++	  </MauiXaml>
++	</ItemGroup>
++
+ </Project>
