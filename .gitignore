@@ -1,0 +1,28 @@
+# Build outputs
+bin/
+obj/
+Debug/
+Release/
+
+# IDE
+.vs/
+.idea/
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Packages and generated artifacts
+*.apk
+*.aab
+*.ipa
+*.appx
+*.msix
